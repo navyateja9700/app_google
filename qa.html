@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Moderation - Moderator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #28A745;
+        }
+        form {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        label {
+            font-weight: bold;
+        }
+        textarea, select, input[type="text"] {
+            width: 100%;
+            margin: 5px 0 15px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28A745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .back-link {
+            text-decoration: none;
+            color: #28A745;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Moderator Dashboard</h1>
+    <form action="submit_moderation" method="POST">
+        <label for="flaggedContentId">Flagged Content ID:</label>
+        <input type="text" id="flaggedContentId" name="flaggedContentId" placeholder="Enter Flagged Content ID" required>
+
+        <label for="decision">Moderation Decision:</label>
+        <select id="decision" name="decision" required>
+            <option value="">Select Decision</option>
+            <option value="resolved">Resolved</option>
+            <option value="escalated">Escalated</option>
+            <option value="dismissed">Dismissed</option>
+        </select>
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="Add any notes or details about your decision"></textarea>
+
+        <button type="submit">Submit Decision</button>
+    </form>
+    <a href="index.html" class="back-link">Go Back</a>
+</body>
+</html>
