@@ -1,0 +1,52 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Moderation - Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        #content {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Content Moderation</h1>
+    <p>Choose your role to proceed:</p>
+    <div>
+        <span class="button" onclick="loadPage('QA')">QA</span>
+        <span class="button" onclick="loadPage('moderator')">Moderator</span>
+    </div>
+    <div id="content"></div>
+
+    <script>
+        // Load content dynamically into the #content div
+        function loadPage(page) {
+            google.script.run
+                .withSuccessHandler(function(content) {
+                    document.getElementById('content').innerHTML = content;
+                })
+                .include(page);
+        }
+    </script>
+</body>
+</html>
